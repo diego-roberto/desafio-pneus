@@ -1,19 +1,17 @@
 package io.github.diegors.desafiopneus.application.dto;
 
 import lombok.*;
-import java.util.List;
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class VeiculoComPneusDTO {
+public class VeiculoDTO {
 
     private String placa;
     private String marca;
     private Double quilometragem;
     private String status;
-    private List<PneuPosicaoDTO> pneus;
 
 }

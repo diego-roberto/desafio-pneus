@@ -2,6 +2,7 @@ package io.github.diegors.desafiopneus.application.service;
 
 import io.github.diegors.desafiopneus.adapter.repository.VeiculoRepository;
 import io.github.diegors.desafiopneus.application.dto.VeiculoComPneusDTO;
+import io.github.diegors.desafiopneus.application.dto.VeiculoDTO;
 import io.github.diegors.desafiopneus.application.exception.VeiculoServiceException;
 import io.github.diegors.desafiopneus.application.mapper.VeiculoMapper;
 import io.github.diegors.desafiopneus.domain.model.Veiculo;
@@ -21,13 +22,15 @@ public class VeiculoService {
     @Autowired
     private VeiculoRepository veiculoRepository;
 
+    @Autowired
     private VeiculoMapper veiculoMapper;
 
-    public List<Veiculo> findAll() {
+    public List<VeiculoDTO> findAll() {
         return Optional.of(veiculoRepository.findAll())
                 .orElseGet(Collections::emptyList)
                 .stream()
                 .filter(Veiculo::getStatus)
+                .map(veiculoMapper::mapToVeiculoDTO)
                 .collect(Collectors.toList());
     }
 

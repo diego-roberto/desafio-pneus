@@ -12,7 +12,7 @@ public class PneuPosicaoDTO {
     private Integer numeroFogo;
     private String marca;
     private Double pressaoAtual;
-    private Boolean status;
+    private String status;
     private String posicao;
 
 }

@@ -2,6 +2,7 @@ package io.github.diegors.desafiopneus.domain.model;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.util.List;
 
 @Getter

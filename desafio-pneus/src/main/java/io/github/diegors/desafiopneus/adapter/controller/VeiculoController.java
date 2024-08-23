@@ -1,8 +1,8 @@
 package io.github.diegors.desafiopneus.adapter.controller;
 
 import io.github.diegors.desafiopneus.application.dto.VeiculoComPneusDTO;
+import io.github.diegors.desafiopneus.application.dto.VeiculoDTO;
 import io.github.diegors.desafiopneus.application.service.VeiculoService;
-import io.github.diegors.desafiopneus.domain.model.Veiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +23,8 @@ public class VeiculoController {
     private VeiculoService veiculoService;
 
     @GetMapping()
-    public ResponseEntity<List<Veiculo>> findAll() {
-        List<Veiculo> veiculos = veiculoService.findAll();
+    public ResponseEntity<List<VeiculoDTO>> findAll() {
+        List<VeiculoDTO> veiculos = veiculoService.findAll();
         if (veiculos.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
