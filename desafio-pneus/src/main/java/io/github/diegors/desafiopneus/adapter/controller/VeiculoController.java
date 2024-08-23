@@ -31,6 +31,7 @@ public class VeiculoController {
         return ResponseEntity.ok(veiculos);
     }
 
+    /* endpoint para fins de debug */
     @GetMapping("/findById")
     public ResponseEntity<VeiculoComPneusDTO> findById(@RequestParam("id") Long id) {
         return veiculoService.findById(id)

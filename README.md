@@ -12,6 +12,9 @@ API em Java 17 com spring-boot 3.3.2</br>
 Base de dados PostgreSQL 13
 </br>
 
+## Testes
+Foram criados casos de teste unitários, com JUnit e Mockito. Testes de integração, foram implementados com o recurso do framework TestContainers, para instanciar uma base postgreSQL dentro de um container temporário. Todos os testes são automatizados. Tomei a liberdade de adicionar um teste de arquitetura com archunit.
+
 ## Executando em ambiente local com Docker 🐋
 A partir da pasta raiz do projeto, onde se encontra o arquivo docker-compose.yml, execute o comando para iniciar o container:
 > docker-compose up --build
