@@ -41,14 +41,14 @@ Senão, utilize o comando abaixo antes de executar o backend novamente:
 
 </br>
 
-# Estrutura dos Containers
-
-<p align="center">
-  <img width="460" height="400" src="frontend/src/assets/docker.png">
-</p>
-
 # Modelagem de dados
 
 <p align="center">
-  <img width="460" height="400" src="frontend/src/assets/docker.png">
+  <img width="460" height="400" src="desafio-pneus/src/main/resources/assets/db.png">
+</p>
+
+# Estrutura dos Containers
+
+<p align="center">
+  <img width="480" height="280" src="desafio-pneus/src/main/resources/assets/docker.png">
 </p>
