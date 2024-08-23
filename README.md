@@ -22,6 +22,20 @@ Feito isso, verifique se os containers estão em execução e faça uma requisi�
 >
 > localhost:8080/veiculos/findByPlaca
 >
+</br>
+
+### Exemplo de requisição:
+
+<a href="https://postman.com" target="_blank" rel="noreferrer">
+  <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="28"
+    height="28" />
+</a>
+
+<p align="center">
+  <img width="800" height="320" src="desafio-pneus/src/main/resources/assets/postman-ex.png">
+</p>
+
+</br>
 
 O container postgresql é dependência do container da API, então irá iniciar antes do build, automaticamente.
 Senão, utilize o comando abaixo antes de executar o backend novamente:

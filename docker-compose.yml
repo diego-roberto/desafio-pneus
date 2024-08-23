@@ -1,8 +1,12 @@
 version: '3.7'
+
 networks:
   network:
     driver: bridge
+
 services:
+
+  ## API ##
   desafio-pneus:
     build:
       context: ./desafio-pneus
@@ -29,6 +33,8 @@ services:
     ports:
       - '8080:8080'
     restart: always
+
+  ## DB ##
   postgresql:
     image: 'postgres:13-alpine'
     container_name: postgresql
