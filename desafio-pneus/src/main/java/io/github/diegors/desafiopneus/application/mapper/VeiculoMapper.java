@@ -5,6 +5,7 @@ import io.github.diegors.desafiopneus.application.dto.VeiculoComPneusDTO;
 import io.github.diegors.desafiopneus.application.dto.VeiculoDTO;
 import io.github.diegors.desafiopneus.domain.model.Veiculo;
 import io.github.diegors.desafiopneus.domain.model.VeiculoPneuPosicao;
+import io.github.diegors.desafiopneus.domain.model.enums.TipoVeiculo;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;
@@ -19,6 +20,7 @@ public class VeiculoMapper {
                 .marca(veiculo.getMarca())
                 .quilometragem(veiculo.getQuilometragem())
                 .status(Boolean.TRUE.equals(veiculo.getStatus()) ? "Ativo" : "Inativo")
+                .tipoVeiculo(veiculo.getTipoVeiculo().name())
                 .build();
     }
 
@@ -28,6 +30,7 @@ public class VeiculoMapper {
                 .marca(veiculo.getMarca())
                 .quilometragem(veiculo.getQuilometragem())
                 .status(Boolean.TRUE.equals(veiculo.getStatus()) ? "Ativo" : "Inativo")
+                .tipoVeiculo(veiculo.getTipoVeiculo().name())
                 .pneus(veiculo.getVeiculoPneuPosicoes().stream()
                         .filter(Objects::nonNull)
                         .map(this::mapToPneuPosicaoDTO)
@@ -41,7 +44,19 @@ public class VeiculoMapper {
                 .marca(veiculoPneuPosicao.getPneu().getMarca())
                 .pressaoAtual(veiculoPneuPosicao.getPneu().getPressaoAtual())
                 .status(Boolean.TRUE.equals(veiculoPneuPosicao.getPneu().getStatus()) ? "Ativo" : "Inativo")
+                .tipoPneu(veiculoPneuPosicao.getPneu().getTipoPneu().name())
                 .posicao(veiculoPneuPosicao.getPosicao())
                 .build();
     }
+
+    public Veiculo mapToVeiculo(VeiculoDTO veiculoDTO) {
+        return Veiculo.builder()
+                .placa(veiculoDTO.getPlaca())
+                .marca(veiculoDTO.getMarca())
+                .quilometragem(veiculoDTO.getQuilometragem())
+                .status("Ativo".equals(veiculoDTO.getStatus()))
+                .tipoVeiculo(TipoVeiculo.valueOf(veiculoDTO.getTipoVeiculo()))
+                .build();
+    }
+
 }
