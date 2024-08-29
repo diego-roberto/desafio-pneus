@@ -18,7 +18,7 @@ public class ListarTodosVeiculosTest extends BaseIntegrationTest {
         when().get("/veiculos")
                 .then()
                 .statusCode(200)
-                .body("size()", is(3))
-                .body("placa", hasItems("ABC1234", "XYZ5678", "JKL9101"));
+                .body("size()", is(4))
+                .body("placa", hasItems("ABC1234", "XYZ5678", "JKL9101", "TRK1234"));
     }
 }

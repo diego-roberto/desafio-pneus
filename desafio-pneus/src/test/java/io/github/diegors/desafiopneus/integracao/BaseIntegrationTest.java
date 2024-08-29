@@ -2,7 +2,9 @@ package io.github.diegors.desafiopneus.integracao;
 
 import io.restassured.RestAssured;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
@@ -11,11 +13,9 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.web.context.WebApplicationContext;
 import org.testcontainers.containers.PostgreSQLContainer;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-@Testcontainers
 public abstract class BaseIntegrationTest {
 
     @Autowired
@@ -24,16 +24,19 @@ public abstract class BaseIntegrationTest {
     @LocalServerPort
     protected Integer port;
 
-    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:13-alpine");
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>("postgres:13-alpine")
+            .withReuse(true);
 
     @BeforeAll
     static void beforeAll() {
-        postgres.start();
+        if (!postgres.isRunning()) {
+            postgres.start();
+        }
     }
 
     @AfterAll
     static void afterAll() {
-        postgres.stop();
+//        postgres.stop();
     }
 
     @DynamicPropertySource
