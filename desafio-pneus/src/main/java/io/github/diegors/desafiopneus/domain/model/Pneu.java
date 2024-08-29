@@ -1,5 +1,7 @@
 package io.github.diegors.desafiopneus.domain.model;
 
+import io.github.diegors.desafiopneus.domain.model.enums.TipoPneu;
+import io.github.diegors.desafiopneus.infrastructure.persistence.converter.TipoPneuConverter;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,7 +17,7 @@ import java.util.List;
 public class Pneu {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Integer numeroFogo;
@@ -25,6 +27,10 @@ public class Pneu {
     private Double pressaoAtual;
 
     private Boolean status;
+
+    @Enumerated(EnumType.STRING)
+    @Convert(converter = TipoPneuConverter.class)
+    private TipoPneu tipoPneu;
 
     @OneToMany(mappedBy = "pneu", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VeiculoPneuPosicao> veiculoPneuPosicoes;

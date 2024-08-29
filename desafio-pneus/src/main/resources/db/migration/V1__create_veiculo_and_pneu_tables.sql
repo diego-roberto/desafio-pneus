@@ -8,21 +8,22 @@ CREATE TABLE veiculos (
   placa VARCHAR(20) UNIQUE NOT NULL,
   marca VARCHAR(50),
   quilometragem DECIMAL(10,2),
-  status BOOLEAN DEFAULT TRUE
+  status BOOLEAN DEFAULT TRUE,
+  tipo_veiculo VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE pneus (
    id SERIAL PRIMARY KEY,
-   numero_fogo INTEGER NOT NULL,
+   numero_fogo INTEGER UNIQUE NOT NULL,
    marca VARCHAR(50),
    pressao_atual DECIMAL(5,2),
    status BOOLEAN DEFAULT TRUE,
-   veiculo_id INTEGER REFERENCES veiculos(id)
+   tipo_pneu VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE veiculo_pneu_posicoes (
    id SERIAL PRIMARY KEY,
-   veiculo_id INTEGER REFERENCES veiculos(id),
-   pneu_id INTEGER REFERENCES pneus(id),
-   posicao VARCHAR(20)
+   veiculo_id INTEGER REFERENCES veiculos(id) ON DELETE CASCADE,
+   pneu_id INTEGER REFERENCES pneus(id) ON DELETE CASCADE,
+   posicao VARCHAR(30)
 );

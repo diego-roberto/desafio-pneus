@@ -14,5 +14,6 @@ public class PneuPosicaoDTO {
     private Double pressaoAtual;
     private String status;
     private String posicao;
+    private String tipoPneu;
 
 }

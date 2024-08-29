@@ -13,5 +13,6 @@ public class VeiculoDTO {
     private String marca;
     private Double quilometragem;
     private String status;
+    private String tipoVeiculo;
 
 }

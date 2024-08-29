@@ -14,6 +14,7 @@ public class VeiculoComPneusDTO {
     private String marca;
     private Double quilometragem;
     private String status;
+    private String tipoVeiculo;
     private List<PneuPosicaoDTO> pneus;
 
 }
