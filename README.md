@@ -38,6 +38,8 @@ Feito isso, verifique se os containers estão em execução e faça uma requisi�
   <img width="800" height="320" src="desafio-pneus/src/main/resources/assets/postman-ex.png">
 </p>
 
+Há um arquivo para importação das requisições em <br> /resources/assets/<b>desafio-pneus.postman_collection.json</b>
+
 </br>
 
 O container postgresql é dependência do container da API, então irá iniciar antes do build, automaticamente.

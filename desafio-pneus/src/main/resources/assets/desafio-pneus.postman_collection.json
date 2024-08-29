@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "568d267d-9f57-478c-abdb-4b614e640d16",
+		"name": "desafio-pneus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31101096"
+	},
+	"item": [
+		{
+			"name": "findById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/veiculos/findById?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"findById"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/veiculos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "findByPlaca",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/veiculos/findByPlaca?placa=ABC1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos",
+						"findByPlaca"
+					],
+					"query": [
+						{
+							"key": "placa",
+							"value": "ABC1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-veiculo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"placa\": \"AB22C0\",\n  \"marca\": \"Fiat\",\n  \"quilometragem\": 220.6,\n  \"status\": \"Ativo\",\n  \"tipoVeiculo\": \"CARRO\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/veiculos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save-pneu",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"numeroFogo\": 511,\n    \"marca\": \"Firestone\",\n    \"pressaoAtual\": 34.0,\n    \"status\": \"Ativo\",\n    \"tipoPneu\": \"OFF_ROAD\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pneus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pneus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "vincular",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/veiculo-pneus/vincular?placa=AB22C0&numeroFogo=511&posicao=Traseiro Esquerdo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo-pneus",
+						"vincular"
+					],
+					"query": [
+						{
+							"key": "placa",
+							"value": "AB22C0"
+						},
+						{
+							"key": "numeroFogo",
+							"value": "511"
+						},
+						{
+							"key": "posicao",
+							"value": "Traseiro Esquerdo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "desvincular",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/veiculo-pneus/desvincular?placa=ABC1234&numeroFogo=111",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"veiculo-pneus",
+						"desvincular"
+					],
+					"query": [
+						{
+							"key": "placa",
+							"value": "ABC1234"
+						},
+						{
+							"key": "numeroFogo",
+							"value": "111"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
